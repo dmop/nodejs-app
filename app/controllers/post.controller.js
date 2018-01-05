@@ -18,7 +18,7 @@ exports.create = function(req, res) {
             console.log(err);
             res.status(500).send({message: "Some error ocuured while creating the Post."});
         } else {
-            res.send(data);
+            res.status(200).send(data);
         }
     });
 };
@@ -43,7 +43,7 @@ exports.postsFromJson = function(req, res) {
                 });
 
                 });  
-                res.send(allPosts);        
+                res.status(200).send(allPosts);        
             })
             .catch(function (error) {
                   console.log(error);
@@ -93,7 +93,7 @@ exports.postsFromPage = function(req, res) {
             });  
         // Log our finished parse results in the terminal
         // console.log(parsedResults);
-        res.send(parsedResults)
+        res.status(200).send(parsedResults)
 
     })
     .catch(function (error) {
@@ -110,7 +110,7 @@ exports.findAll = function(req, res) {
         if(err) {
             res.status(500).send({message: "Some error ocuured while retrieving posts."});
         } else {
-            res.send(posts);
+            res.status(200).send(posts);
         }
     });
 };
@@ -121,7 +121,7 @@ exports.findOne = function(req, res) {
         if(err) {
             res.status(500).send({message: "Could not retrieve post with id " + req.params.postId});
         } else {
-            res.send(data);
+            res.status(200).send(data);
         }
     });
 };
@@ -140,7 +140,7 @@ exports.update = function(req, res) {
             if(err) {
                 res.status(500).send({message: "Could not update post with id " + req.params.postId});
             } else {
-                res.send(data);
+                res.status(200).send(data);
             }
         });
     });
@@ -152,7 +152,7 @@ exports.delete = function(req, res) {
         if(err) {
             res.status(500).send({message: "Could not delete post with id " + req.params.id});
         } else {
-            res.send({message: "Post deleted successfully!"})
+            res.status(200).send({message: "Post deleted successfully!"})
         }
     });
 };
