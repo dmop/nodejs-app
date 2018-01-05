@@ -1,8 +1,7 @@
-var Post = require('../models/post.model.js');
-var config = require('../../config/config');
-var axios = require('axios');
-var cheerio = require('cheerio');
-var request = require('request');
+const Post = require('../models/post.model.js');
+const config = require('../../config/config');
+const axios = require('axios');
+const cheerio = require('cheerio');
 
 
 exports.create = function(req, res) {
